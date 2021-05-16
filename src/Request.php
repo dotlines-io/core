@@ -5,7 +5,6 @@ namespace Dotlines\Core;
 
 use Dotlines\Core\Helpers\RequestHelper;
 use Dotlines\Core\Interfaces\IRequest;
-use JsonException;
 
 abstract class Request implements IRequest
 {
@@ -22,7 +21,6 @@ abstract class Request implements IRequest
 
     /**
      * @return array
-     * @throws JsonException
      */
     final public function send(): array
     {

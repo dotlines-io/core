@@ -2,6 +2,10 @@
 
 All notable changes to `doltlines-io/core` package will be listed in this file.
 
+## 1.0.1 - 2021-05-16
+
+- Removes non php 7.0 compatible features
+
 ## 1.0.0 - 2021-05-16
 
 - initial release
