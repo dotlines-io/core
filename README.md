@@ -1,7 +1,7 @@
 # Dotlines Core Package
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/dotlines-io/core.svg?style=flat-square)](https://packagist.org/packages/dotlines-io/core)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/dotlines-io/core/run-tests?label=tests)](https://github.com/dotlines-io/core/actions?query=workflow%3ATests+branch%3Amaster)
+![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/dotlines-io/core/run-tests?label=tests)
 [![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/dotlines-io/core/Check%20&%20fix%20styling?label=code%20style)](https://github.com/dotlines-io/core/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amaster)
 [![Total Downloads](https://img.shields.io/packagist/dt/dotlines-io/core.svg?style=flat-square)](https://packagist.org/packages/dotlines-io/core)
 
