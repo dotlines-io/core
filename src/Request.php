@@ -5,12 +5,14 @@ namespace Dotlines\Core;
 
 use Dotlines\Core\Helpers\RequestHelper;
 use Dotlines\Core\Interfaces\IRequest;
+use Exception;
+use JsonException;
 
 abstract class Request implements IRequest
 {
-    protected $requestMethod;
-    protected $url;
-    protected $accessToken = '';
+    protected string $requestMethod = 'POST';
+    protected string $url = '';
+    protected string $accessToken = '';
 
     abstract public function params(): array;
 
@@ -21,9 +23,11 @@ abstract class Request implements IRequest
 
     /**
      * @return array
+     * @throws JsonException
+     * @throws Exception
      */
     final public function send(): array
     {
-        return RequestHelper::send_request($this->requestMethod ?? 'POST', $this->url, $this->headers(), $this->params());
+        return RequestHelper::send_request($this->requestMethod, $this->url, $this->headers(), $this->params());
     }
 }
