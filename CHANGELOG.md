@@ -2,6 +2,11 @@
 
 All notable changes to `doltlines-io/core` package will be listed in this file.
 
+
+## 1.0.4 - 2021-05-17
+
+- Updates for packagist badge
+
 ## 1.0.3 - 2021-05-17
 
 - Readme file updated for badges
