@@ -1,4 +1,4 @@
-<?php
+<?php /** @noinspection PhpUnitMissingTargetForTestInspection */
 
 /** @noinspection MethodVisibilityInspection */
 
@@ -11,7 +11,11 @@ use PHPUnit\Framework\TestCase;
 
 class RequestClassTest extends TestCase
 {
-    /** @test
+    protected $backupStaticAttributes = false;
+    protected $runTestInSeparateProcess = false;
+
+    /**
+     * @test
      */
     final public function it_can_prepare_mandatory_headers(): void
     {
@@ -28,7 +32,8 @@ class RequestClassTest extends TestCase
         self::assertArrayHasKey('Content-Type', $headers);
     }
 
-    /** @test
+    /**
+     * @test
      */
     final public function it_can_prepare_mandatory_headers_with_access_token(): void
     {
@@ -48,7 +53,8 @@ class RequestClassTest extends TestCase
         self::assertArrayHasKey('Authorization', $headers);
     }
 
-    /** @test
+    /**
+     * @test
      * @throws JsonException
      */
     final public function it_gets_exception_if_url_missing(): void
@@ -64,7 +70,8 @@ class RequestClassTest extends TestCase
         $requestObj->send();
     }
 
-    /** @test
+    /**
+     * @test
      * @throws JsonException
      */
     final public function it_can_send_get_request(): void
@@ -85,7 +92,8 @@ class RequestClassTest extends TestCase
         self::assertNotEmpty($requestObj->send());
     }
 
-    /** @test
+    /**
+     * @test
      * @throws JsonException
      */
     final public function it_can_send_get_request_with_params(): void
@@ -109,7 +117,8 @@ class RequestClassTest extends TestCase
         self::assertNotEmpty($response['params']);
     }
 
-    /** @test
+    /**
+     * @test
      * @throws JsonException
      */
     final public function it_can_send_post_request(): void
@@ -130,7 +139,8 @@ class RequestClassTest extends TestCase
         self::assertNotEmpty($requestObj->send());
     }
 
-    /** @test
+    /**
+     * @test
      * @throws JsonException
      */
     final public function it_can_send_post_request_with_params(): void

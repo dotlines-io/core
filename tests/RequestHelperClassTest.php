@@ -11,7 +11,11 @@ use PHPUnit\Framework\TestCase;
 
 class RequestHelperClassTest extends TestCase
 {
-    /** @test
+    protected $backupStaticAttributes = false;
+    protected $runTestInSeparateProcess = false;
+
+    /**
+     * @test
      */
     final public function it_can_prepare_mandatory_headers(): void
     {
@@ -21,7 +25,8 @@ class RequestHelperClassTest extends TestCase
         self::assertArrayHasKey('Content-Type', $headers);
     }
 
-    /** @test
+    /**
+     * @test
      */
     final public function it_can_prepare_mandatory_headers_with_access_token(): void
     {
@@ -29,7 +34,8 @@ class RequestHelperClassTest extends TestCase
         self::assertArrayHasKey('Authorization', $headers);
     }
 
-    /** @test
+    /**
+     * @test
      * @throws JsonException
      */
     final public function it_gets_exception_if_url_missing(): void
@@ -39,7 +45,8 @@ class RequestHelperClassTest extends TestCase
         RequestHelper::send_request("POST", "", $headers, []);
     }
 
-    /** @test
+    /**
+     * @test
      * @throws JsonException
      */
     final public function it_can_send_get_request(): void
@@ -48,7 +55,8 @@ class RequestHelperClassTest extends TestCase
         self::assertNotEmpty(RequestHelper::send_request('GET', 'https://sb-payments.ghoori.com.bd/api/normal/get/time', $headers, []));
     }
 
-    /** @test
+    /**
+     * @test
      * @throws JsonException
      */
     final public function it_can_send_get_request_with_params(): void
@@ -61,7 +69,8 @@ class RequestHelperClassTest extends TestCase
         self::assertNotEmpty($response['params']);
     }
 
-    /** @test
+    /**
+     * @test
      * @throws JsonException
      */
     final public function it_can_send_post_request(): void
@@ -70,7 +79,8 @@ class RequestHelperClassTest extends TestCase
         self::assertNotEmpty(RequestHelper::send_request('POST', 'https://sb-payments.ghoori.com.bd/api/normal/post/time', $headers, []));
     }
 
-    /** @test
+    /**
+     * @test
      * @throws JsonException
      */
     final public function it_can_send_post_request_with_params(): void

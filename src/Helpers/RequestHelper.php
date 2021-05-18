@@ -6,6 +6,7 @@ use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
 use JsonException;
+use Psr\Http\Message\ResponseInterface;
 
 class RequestHelper
 {
@@ -14,7 +15,7 @@ class RequestHelper
      * @param string $url
      * @param array $headers
      * @param array $params
-     * @return mixed
+     * @return array
      * @noinspection PhpUndefinedConstantInspection
      * @throws JsonException
      * @throws Exception
@@ -25,6 +26,7 @@ class RequestHelper
             throw new Exception("Request URL cannot be empty");
         }
 
+        /** @var ResponseInterface */
         $response = (new Client())->sendAsync(new Request($HTTP_METHOD, $url, $headers, ! empty($params) ? json_encode($params, JSON_THROW_ON_ERROR) : null))->wait();
 
         return json_decode($response->getBody()->getContents(), true, 512, JSON_THROW_ON_ERROR);
