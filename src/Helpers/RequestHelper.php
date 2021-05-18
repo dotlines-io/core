@@ -29,7 +29,7 @@ class RequestHelper
         /** @var ResponseInterface */
         $response = (new Client())->sendAsync(new Request($HTTP_METHOD, $url, $headers, ! empty($params) ? json_encode($params, JSON_THROW_ON_ERROR) : null))->wait();
 
-        return json_decode($response->getBody()->getContents(), true, 512, JSON_THROW_ON_ERROR);
+        return (array)json_decode($response->getBody()->getContents(), true, 512, JSON_THROW_ON_ERROR);
     }
 
     public static function make_headers(string $accessToken): array
