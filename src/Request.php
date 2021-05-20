@@ -6,6 +6,7 @@ namespace Dotlines\Core;
 use Dotlines\Core\Helpers\RequestHelper;
 use Dotlines\Core\Interfaces\IRequest;
 use Exception;
+use GuzzleHttp\Exception\GuzzleException;
 use JsonException;
 
 abstract class Request implements IRequest
@@ -16,7 +17,10 @@ abstract class Request implements IRequest
 
     abstract public function params(): array;
 
-    final public function headers(): array
+    /**
+     * @noinspection MethodShouldBeFinalInspection
+     */
+    public function headers(): array
     {
         return RequestHelper::make_headers($this->accessToken);
     }
@@ -24,9 +28,10 @@ abstract class Request implements IRequest
     /**
      * @return array
      * @throws JsonException
-     * @throws Exception
+     * @throws Exception|GuzzleException
+     * @noinspection MethodShouldBeFinalInspection
      */
-    final public function send(): array
+    public function send(): array
     {
         return RequestHelper::send_request($this->requestMethod, $this->url, $this->headers(), $this->params());
     }
