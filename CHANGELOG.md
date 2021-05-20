@@ -2,6 +2,10 @@
 
 All notable changes to `doltlines-io/core` package will be listed in this file.
 
+## 1.0.7 - 2021-05-20
+
+- Entends Request Processing
+
 ## 1.0.6 - 2021-05-19
 
 - Upgrades and removes some dependecies
