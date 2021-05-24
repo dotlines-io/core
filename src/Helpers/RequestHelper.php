@@ -1,5 +1,7 @@
 <?php
 
+/** @noinspection PhpMultipleClassDeclarationsInspection */
+
 namespace Dotlines\Core\Helpers;
 
 use Exception;
@@ -16,7 +18,6 @@ class RequestHelper
      * @param array $headers
      * @param array $params
      * @return array
-     * @noinspection PhpUndefinedConstantInspection
      * @throws JsonException
      * @throws Exception
      * @throws GuzzleException
@@ -52,7 +53,6 @@ class RequestHelper
      * @param array $headers
      * @param array $params
      * @return array
-     * @noinspection PhpUndefinedConstantInspection
      * @throws JsonException
      * @throws Exception
      * @throws GuzzleException

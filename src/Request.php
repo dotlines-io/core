@@ -1,5 +1,6 @@
 <?php
 
+/** @noinspection PhpMultipleClassDeclarationsInspection */
 
 namespace Dotlines\Core;
 
